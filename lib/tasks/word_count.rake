@@ -6,10 +6,11 @@ task :word_count do
   path_to_special_word = Rails.root + "lib/input_files/word_count_special_word.txt"
   special_word = open(path_to_special_word).read
 
-  # =====================================================================
-  # Your code goes below.
-  # The text from the file is in the variable 'text'.
-  # The special word from the file is in the variable 'special_word'.
-  # =====================================================================
-  
+  ap("File input is: " + text)
+  ap("Character count (with spaces): #{text.length}")
+  ap("Character count (without spaces): " + text.gsub(' ','').length.to_s)
+  ap(special_word)
+  ap (text)
+  count_input = text.gsub(/[^a-z0-9\s]/i, "").split.count(special_word)
+  ap(count_input)
 end
