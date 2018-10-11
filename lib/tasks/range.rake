@@ -4,16 +4,22 @@ task :range do
   input = open(path_to_file).read.chomp
   numbers = input.gsub(",", "").split.map(&:to_f)
 
-  # =====================================================================
-  # Your code goes below.
-  # The numbers from the file are in the array `numbers`.
-  # =====================================================================
+  minimum = numbers[0]
+  numbers.each do |num|        
+  if num < minimum
+    minimum = num
+  end
+end
+  
+  maximum = numbers[0]
+  numbers.each do |num2|        
+  if num2 > maximum
+    maximum = num2
+  end
+end
+  
+  ap("Your numbers:")
+  ap(numbers)
+  ap("Range: " + (maximum-minimum).to_s)
 
-  # RANGE
-  # =====
-
-  # To find the range of a set of numbers,
-  #  - Find the maximum
-  #  - Find the minimum
-  #  - Subtract the latter from the former
 end
